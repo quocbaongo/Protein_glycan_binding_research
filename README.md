@@ -20,3 +20,8 @@ The repository contains the results of molecular dynamics simulations conducted 
 		For free glycans simulations
 			
 			. Sub-directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 7.
+
+# To create environment for MDAnalysis
+conda env create -f env.yml
+
+#The script in MDAnalysis directory requires software and python libraries specified in env.yml script.
