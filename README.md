@@ -1,4 +1,4 @@
-# The repository contains the results of molecular dynamics simulations conducted in the publication "Theoretical Investigations of a point mutation on the H5N1 Hemagglutinin-Receptor Complex."
+# The repository contains the results of molecular dynamics simulations conducted in the publication "Theoretical Investigations of a point mutation affecting H5 Hemagglutinin’s receptor binding preference."
 
 	. Directory "PDBStructure_Topology" contains the WT and MT D94N H5 Hemaggluinin structures, and SAα2,3Gal and SAα2,6Gal glycans structure and topologies in Glycam and Charmm formats.
 	
