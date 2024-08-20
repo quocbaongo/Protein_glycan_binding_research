@@ -872,4 +872,103 @@ do
 	echo -e 'BGLCNA_BGAL_ANE5AC_&_!H*' 'BGLCNA_BGAL_ANE5AC_&_!H*' | $GMX rms -s $EMTPR -f $StartingPDBDir/frame_$i.pdb -n $WorkDir/ReceptorRMSD/index.ndx -o $WorkDir/ReceptorRMSD/rmsd_start$i.xvg
 done
 
+	################################################################################################################################################
+
+mkdir $WorkDir/RBS_volume_calculation
+cd $WorkDir/RBS_volume_calculation
+
+# Generate a python file to measure the protein receptor binding pocket
+#over the course of the simulation
+
+echo 'import numpy as np
+from scipy.spatial import ConvexHull
+import MDAnalysis
+import multiprocessing as mp
+from multiprocessing import cpu_count
+from multiprocessing import Pool
+from functools import partial
+import sys
+
+def MeasuringVolume(Environ, frame_index, SelectedRes, FileOut):
+
+	
+	Environ.universe.trajectory[frame_index]
+
+	CoordGeometry = []
+			
+	for element in SelectedRes:
+		for i in range(element[0], element[1]+1):
+			CoordGeometry.append(Environ.select_atoms(f'resid {i} and segid {element[2]}').positions[0])
+			
+	CoordGeometry = np.array(CoordGeometry)
+	hull = ConvexHull(CoordGeometry)
+			
+	# Write in file
+	Volume = open(FileOut, 'a')
+	Volume.write(f'{frame_index} {hull.volume}\n')
+	Volume.close()
+
+
+if __name__ == '__main__':
+
+	# Input trajectory in the form of .xtc file
+	TRAJ=sys.argv[1]
+	
+	# Input the topology in the form of .pdb file
+	TPR=sys.argv[2]
+	
+	# File in .txt format to define amino acids that belongs to the target region
+	ResIDRegion=sys.argv[3]
+	
+	# Initiate universe
+	u = MDAnalysis.Universe(TPR, TRAJ)
+	
+	# Open input file
+	DefinedRegion=[]
+	with open(f'{ResIDRegion}', 'r') as f:
+		FileContent=f.readlines()
+		
+		for line in FileContent:
+			if line.strip():
+				DefinedRegion.append([int(line.split()[0]), int(line.split()[1]), line.split()[2]])
+
+
+	# Calculate volume multiprocessing					
+	pool = mp.Pool(mp.cpu_count())  
+	pool.starmap(MeasuringVolume, [(u,ts,DefinedRegion,file_output) for ts in range(len(u.universe.trajectory))])
+' > $WorkDir/RBS_volume_calculation/Volume_computations.py
+	
+# Create a .txt file that define interested region to compute volume
+echo '91 91 A
+129 134 A
+141 141 A
+149 149 A
+151 152 A
+179 182 A
+186 186 A
+189 191 A
+218 218 A
+220 226 A
+' > $WorkDir/RBS_volume_calculation/InputFile.txt	
+	
+# Here: '91 91 A' indicates that all atoms of the amino acid id 91 belonging to chain A is part of the defined region	
+# '129 134 A' indicates that all atoms of the amino acid id 129 - 134 belonging to chain A is also part of the defined region
+	
+# Execution
+python3 $WorkDir/RBS_volume_calculation/Volume_computations.py $WorkDir/ConcatenatedTraj/trajout.xtc $WorkDir/ConcatenatedTraj/frame0.pdb $WorkDir/RBS_volume_calculation/InputFile.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
