@@ -957,11 +957,11 @@ echo '91 91 A
 # Here: '91 91 A' indicates that all atoms of the amino acid id 91 belonging to chain A is part of the defined region	
 # '129 134 A' indicates that all atoms of the amino acid id 129 - 134 belonging to chain A is also part of the defined region
 	
-# Execution
+# Measuring sampled RBS volume values over the course of simulations
 python3 $WorkDir/RBS_volume_calculation/Volume_computations.py $WorkDir/ConcatenatedTraj/trajout.xtc $WorkDir/ConcatenatedTraj/frame0.pdb $WorkDir/RBS_volume_calculation/InputFile.txt $WorkDir/RBS_volume_calculation/VolumeStrctValues.txt
 
-
-
+# Measuring RBS volume value of initial/starting structure
+python3 $WorkDir/RBS_volume_calculation/Volume_computations.py $WorkDir/ConcatenatedTraj/frame0.pdb $WorkDir/ConcatenatedTraj/frame0.pdb $WorkDir/RBS_volume_calculation/InputFile.txt $WorkDir/RBS_volume_calculation/VolumeInitialStrctValue.txt
 
 
 
