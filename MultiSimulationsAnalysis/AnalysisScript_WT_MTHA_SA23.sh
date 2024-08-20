@@ -919,6 +919,9 @@ if __name__ == '__main__':
 	
 	# File in .txt format to define amino acids that belongs to the target region
 	ResIDRegion=sys.argv[3]
+
+ 	# Name of the out put file in .txt format
+  	file_output=sys.argv[4]
 	
 	# Initiate universe
 	u = MDAnalysis.Universe(TPR, TRAJ)
@@ -955,7 +958,9 @@ echo '91 91 A
 # '129 134 A' indicates that all atoms of the amino acid id 129 - 134 belonging to chain A is also part of the defined region
 	
 # Execution
-python3 $WorkDir/RBS_volume_calculation/Volume_computations.py $WorkDir/ConcatenatedTraj/trajout.xtc $WorkDir/ConcatenatedTraj/frame0.pdb $WorkDir/RBS_volume_calculation/InputFile.txt
+python3 $WorkDir/RBS_volume_calculation/Volume_computations.py $WorkDir/ConcatenatedTraj/trajout.xtc $WorkDir/ConcatenatedTraj/frame0.pdb $WorkDir/RBS_volume_calculation/InputFile.txt $WorkDir/RBS_volume_calculation/VolumeStrctValues.txt
+
+
 
 
 
