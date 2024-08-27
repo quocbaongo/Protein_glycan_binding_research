@@ -31,6 +31,8 @@
 		The two directories "FreeSA23" and "FreeSA26" contain data obtained from free glycans in solution simulations
 			. Directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 7 of the publication.
 
+   	. To re-produce any analysis for user own research system, please consulting either the bash script "AnalysisScript_WT_MTHA_SA23.sh" or "AnalysisScript_WT_MTHA_SA26.sh" 
+    
 ## 3. Additional information
 
 To create environment for MDAnalysis: conda env create -f env.yml
