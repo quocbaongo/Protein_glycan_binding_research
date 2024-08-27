@@ -7,7 +7,7 @@
  
  Our research presents a simple but effective strategy to enhance the sampling of the HA-glycan complexes (or protein-small molecule in general). The Python-based in-house design analyses, including binding probability analysis, HA receptor binding site volume computation, glycan topology classification, and particularly ‘hydrogen bond formation propensity’ analysis, has proven effective in deciphering the underlying molecular mechanisms and sequential effects of the amino acid substitution. To conclude, our simulation strategy and analyses can be valuable for predicting and deciphering phenomena that are difficult to capture through wet-lab experiments or to probe the interactions between small molecules/glycans and their biological targets. 
  
- Finally, to read the full manuscript, please access the following link https://www.sciencedirect.com/science/article/pii/S1476927124001774
+ Finally, to read the full publication, please access the following link https://www.sciencedirect.com/science/article/pii/S1476927124001774
 
 ## 2.Repository structure
 	. Directory "PDBStructure_Topology" contains the WT and MT D94N H5 Hemaggluinin structures, and SAα2,3Gal and SAα2,6Gal glycans structure and topologies in Glycam and Charmm formats.
@@ -19,18 +19,17 @@
 		. "AnalysisScript_WT_MTHA_SA23.sh": automation script to conduct the analyses on the complex of WT/MT HA with glycan SA23
 		. "AnalysisScript_WT_MTHA_SA26.sh": automation script to conduct the analyses on the complex of WT/MT HA with glycan SA26
 		
-		For complex HA-glycans simulations
-			. Sub-directory "ProteinReceptorDistance" contains the data to generate Figure 3.
-			. Sub-directory "DetectingHbondTargetProteinRes_System" contains the data to generate Figure 4, S4.
-			. Sub-directory "DetectingHbondReceptor_Protein" contains the data to generate Figure 5.
-			. Sub-directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 8.
-			. Sub-directories "ProteinReceptorDistance" and "Energy" contain the data to generate Figure S3.
-			. Sub-directories "RMSF" contain the data to generate Figure S5.
-   			. Sub-directories "RBS_volume_calculation" contain the data to generate Figure 9.
+		For each sub-directory ("WTHA_SA23", "MTHA_SA23", "WTHA_SA26", "MTHA_SA26") containing data obtained from complex of HA-glycans simulations, the sub-directory is organized as follows: 
+			. Directory "ProteinReceptorDistance" contains the data to generate Figure 3 of the publication.
+			. Directory "DetectingHbondTargetProteinRes_System" contains the data to generate Figure 4, S4 of the publication.
+			. Directory "DetectingHbondReceptor_Protein" contains the data to generate Figure 5 of the publication.
+			. Directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 8 of the publication.
+			. Directories "ProteinReceptorDistance" and "Energy" contain the data to generate Figure S3 of the publication.
+			. Directories "RMSF" contain the data to generate Figure S5 of the publication.
+   			. Directories "RBS_volume_calculation" contain the data to generate Figure 9 of the publication.
 			
-		For free glycans simulations
-			
-			. Sub-directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 7.
+		The two directories "FreeSA23" and "FreeSA26" contain data obtained from free glycans in solution simulations
+			. Directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 7 of the publication.
 
 ## 3. Additional information
 
