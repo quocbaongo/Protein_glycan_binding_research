@@ -10,7 +10,8 @@
  Finally, to read the full publication, please access the following link https://www.sciencedirect.com/science/article/pii/S1476927124001774
 
 ## 2.Repository structure
-	. Directory "PDBStructure_Topology" contains the WT and MT D94N H5 Hemaggluinin structures, and SAα2,3Gal and SAα2,6Gal glycans structure and topologies in Glycam and Charmm formats.
+
+Directory "PDBStructure_Topology" contains the WT and MT D94N H5 Hemaggluinin structures, and SAα2,3Gal and SAα2,6Gal glycans structure and topologies in Glycam and Charmm formats.
 	
 	. Directory "MDSimulationScripts" contains computational-workflow to conduct (1) complex of HA-glycans, (2) free glycans multi-simulations, and (3) Binding free energy change of HA to the glycans upon the D94N mutation.
 		
