@@ -16,9 +16,13 @@ Directory "PDBStructure_Topology" contains the WT and MT D94N H5 Hemaggluinin st
 Directory "MDSimulationScripts" contains computational-workflow to conduct (1) complex of HA-glycans, (2) free glycans multi-simulations, and (3) Binding free energy change of HA to the glycans upon the D94N mutation.
 		
 Directory "MultiSimulationsAnalysis" includes detailed analyses for the simulations of HA-glycans complexes and free glycans.
+
 - Sub-directory "PlottingScripts" includes the python scripts that were used to generate the Figures in the publication.
+
 - "AnalysisScript_WT_MTHA_SA23.sh": automation script to conduct the analyses on the complex of WT/MT HA with glycan SA23.
+
 - "AnalysisScript_WT_MTHA_SA26.sh": automation script to conduct the analyses on the complex of WT/MT HA with glycan SA26.
+
 - For each sub-directory ("WTHA_SA23", "MTHA_SA23", "WTHA_SA26", "MTHA_SA26") containing data obtained from complex of HA-glycans simulations, the sub-directory is organized as follows:
     - Directory "ProteinReceptorDistance" contains the data to generate Figure 3 of the publication.
     - Directory "DetectingHbondTargetProteinRes_System" contains the data to generate Figure 4, S4 of the publication.
@@ -27,6 +31,7 @@ Directory "MultiSimulationsAnalysis" includes detailed analyses for the simulati
     - Directories "ProteinReceptorDistance" and "Energy" contain the data to generate Figure S3 of the publication.
     - Directories "RMSF" contain the data to generate Figure S5 of the publication.
     - Directories "RBS_volume_calculation" contain the data to generate Figure 9 of the publication.
+
 - The two directories "FreeSA23" and "FreeSA26" contain data obtained from free glycans in solution simulations.
   - Directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 7 of the publication.
 
