@@ -41,7 +41,13 @@ echo "Protein_LIG" | $GMX trjconv -f $WorkDir/ConcatenatedTraj/trajout.xtc -s $E
 	#################################################################################################################################################
 
 # The objective of this analysis is to process the concatenated trajectory "trajout.xtc" 
-# to exclude all the frames, in which the glycan diffused away its binding pocket in the HA protein 
+#to exclude all the frames, in which the glycan diffused away its binding pocket in the HA protein
+#Through visual inspection using PyMol, we noticed that the receptor binding pocket on the surface of the HA protein is 
+#formed by a group of residue including resid 91, 92, 126-136, 141-143, 149-152, 179-191, 216-226 of chain A 
+#(resid and chainID is based on the input pdb file named frame0.pdb). 
+#Lines 41-46 of the python script below 'PostProcessingTrajout.py' aim to define the binding pocket of HA.
+#Line 'ReceptorHeavyAtomsCoord=u.select_atoms("(resname BGLC or resname BGAL or resname ANE5) and not name H*").center_of_geometry()' defines
+#the center of geometry of all the glycan heavy atom
 
 cd $WorkDir/ConcatenatedTraj
 
@@ -135,6 +141,13 @@ python3 $WorkDir/ConcatenatedTraj/PostProcessingTrajout.py $WorkDir/Concatenated
 # We measured the distance between the center of geometry of the glycan and 
 #center of geometry of a group of CA atoms of protein residues that 
 #together form glycan binding pocket over the course of every individual simulation
+#Through visual inspection using PyMol, we
+#noticed that the receptor binding pocket on the surface of the HA protein is 
+#formed by a group of residue including resid 91, 92, 126-136, 141-143, 149-152
+#179-191, 216-226 of chain A (resid and chainID is based on the input pdb file named frame0.pdb).
+#Lines 37-42 of the python script below 'Protein_Receptor_Distance.py' aim to define the binding pocket of HA.
+#Line 'ReceptorHeavyAtomsCoord=u.select_atoms("(resname BGLC or resname BGAL or resname ANE5) and not name H*").center_of_geometry()' defines
+#the center of geometry of all the glycan heavy atom
 
 mkdir $WorkDir/ProteinReceptorDistance
 cd $WorkDir/ProteinReceptorDistance
