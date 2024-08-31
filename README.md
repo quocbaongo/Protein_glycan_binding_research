@@ -35,7 +35,7 @@ Directory "MultiSimulationsAnalysis" includes detailed analyses for the simulati
 - The two directories "FreeSA23" and "FreeSA26" contain data obtained from free glycans in solution simulations.
   - Directories "ReceptorRMSD" and "Angle" contain the data to generate Figure 7 of the publication.
 
-To re-produce any analysis described in the publication for user own research system, please consulting either the bash script "AnalysisScript_WT_MTHA_SA23.sh" or "AnalysisScript_WT_MTHA_SA26.sh". To generate plots or graphs using the raw data achieved from our designed analysis workflow, considering utilizing the python scripts in sub-directory directory 'MultiSimulationsAnalysis/PlottingScripts'
+To re-produce any analysis described in the publication for user own research system, please consulting either the bash script [AnalysisScript_WT_MTHA_SA23.sh] or "AnalysisScript_WT_MTHA_SA26.sh". To generate plots or graphs using the raw data achieved from our designed analysis workflow, considering utilizing the python scripts in sub-directory directory 'MultiSimulationsAnalysis/PlottingScripts'
     
 ## 3. Additional information
 
