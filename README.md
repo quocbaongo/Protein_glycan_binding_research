@@ -46,6 +46,10 @@ To re-produce any analysis described in the publication for user own research sy
 
 Directory 'PlottingScripts' contains the python scripts to generate figures presented in the publication. Invoking 'python3 file_name --help' to access the description of the program and instruction, how to use the program.
 
+- "PlottingFigure3.py" is used to generate figure 3 of the publication (distance evolution of 2 pre-defined coordinates)
+- "PlottingFigure4_5.py" is used to generate figure 4 and 5 of the publication (Comparison of hydrogen bond networks involving the target amino acid between the wild-type and mutant complexes)
+
+
 ## 3. Additional information
 
 The script in MDAnalysis directory requires software and python libraries specified in env.yml script.
