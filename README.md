@@ -57,4 +57,5 @@ Directory 'PlottingScripts' contains the python scripts to generate figures pres
 ## 3. Additional information
 
 The script in MDAnalysis directory requires software and python libraries specified in env.yml script.
+
 To create environment for MDAnalysis: conda env create -f env.yml
