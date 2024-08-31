@@ -42,11 +42,11 @@ Directory "MultiSimulationsAnalysis" includes detailed analyses for the simulati
 
 
 To re-produce any analysis described in the publication for user own research system, please consulting either the bash script [AnalysisScript_WT_MTHA_SA23.sh](https://github.com/quocbaongo/Protein_glycan_binding_research/blob/main/MultiSimulationsAnalysis/AnalysisScript_WT_MTHA_SA23.sh) or [AnalysisScript_WT_MTHA_SA26.sh](https://github.com/quocbaongo/Protein_glycan_binding_research/blob/main/MultiSimulationsAnalysis/AnalysisScript_WT_MTHA_SA26.sh). To generate plots or graphs using the raw data achieved from our designed analysis workflow, considering utilizing the python scripts in sub-directory directory 'MultiSimulationsAnalysis/PlottingScripts'
-    
+
+
+Directory 'PlottingScripts' contains the python scripts to generate figures presented in the publication. Invoking 'python3 file_name --help' to access the description of the program and instruction, how to use the program.
+
 ## 3. Additional information
 
-To create environment for MDAnalysis: conda env create -f env.yml
-
-Directory 'MultiSimulationsAnalysis/PlottingScripts' contains the python scripts to generate figures presented in the publication. Invoking 'python3 file_name --help' to access the description of the program and instruction, how to use the program.
-
 The script in MDAnalysis directory requires software and python libraries specified in env.yml script.
+To create environment for MDAnalysis: conda env create -f env.yml
