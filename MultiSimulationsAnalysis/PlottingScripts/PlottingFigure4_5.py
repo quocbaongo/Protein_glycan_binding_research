@@ -5,11 +5,6 @@ import argparse
 import MDAnalysis
 import matplotlib.pyplot as plt
 
-d = {'CYS': 'C', 'ASP': 'D', 'SER': 'S', 'GLN': 'Q', 'LYS': 'K',
-     'ILE': 'I', 'PRO': 'P', 'THR': 'T', 'PHE': 'F', 'ASN': 'N', 
-     'GLY': 'G', 'HIS': 'H', 'LEU': 'L', 'ARG': 'R', 'TRP': 'W', 
-     'ALA': 'A', 'VAL':'V', 'GLU': 'E', 'TYR': 'Y', 'MET': 'M'}
-
 def validate_file(f):
 
     if not os.path.exists(f):
@@ -55,8 +50,9 @@ if __name__ == "__main__":
     
     WTDatabase={}
     
-    for resid,resname in zip(uPDB_WT.select_atoms("protein").resids,uPDB_WT.select_atoms("protein").resnames):
-    	WTDatabase.update({resid:d[resname]})
+    
+    for resid,resname,chainID in zip(uPDB_WT.select_atoms("all").resids,uPDB_WT.select_atoms("all").resnames,uPDB_WT.select_atoms("all").segids):
+    	WTDatabase.update({f"{resid}{chainID}":resname})
     	
     # Open json file
     FileWTInput = open(WTInput)
@@ -80,7 +76,8 @@ if __name__ == "__main__":
     for key, value in FileWTInputContent.items():
     	Diff=FileWTInputContent[key]-FileMTInputContent[key]
     	DiffDict.update({key:Diff})
-    	
+    
+
     ########################################## Start Plotting ######################################################
     # Plotting
     # Define size of figure
@@ -95,10 +92,11 @@ if __name__ == "__main__":
     		xticks.append(str(key))
     		
     xticksLabel=[mem for mem in xticks]
-    for i in range(len(xticksLabel)):
-    	if xticksLabel[i] != "Glycan":
-    		xticksLabel[i] = f"{WTDatabase[int(xticksLabel[i])]}{xticksLabel[i]}"
+    
+    for i in range(len(xticksLabel)):	
+    	xticksLabel[i] = f"{WTDatabase[xticksLabel[i]]}{xticksLabel[i]}"
     	
+
     ax.bar(xticksLabel,[float(DiffDict[key]) for key in xticks])
     
     # Value above each bar
@@ -111,7 +109,7 @@ if __name__ == "__main__":
     		BarVal="{:+.3f}".format(round(b.y1,4))
     		ax.annotate(BarVal,((b.x0 + b.x1)/2,b.y1),rotation=60,size=6,weight='bold')    
     
-    ax.set_xticks(xticksLabel, rotation=30)
+    ax.set_xticklabels(xticksLabel, rotation=30)
     
     # x,yticks
     if args.y_lower_limit and args.y_upper_limit:
@@ -128,7 +126,7 @@ if __name__ == "__main__":
     if args.Output:
     	plt.savefig(f"{args.Output}.png",dpi=600,bbox_inches="tight")
     else:
-    	plt.savefig("Out.png",dpi=600,bbox_inches="tight")    
+    	plt.savefig("Out.png",dpi=600,bbox_inches="tight")
     	
 
 
