@@ -8,7 +8,7 @@ if __name__ == '__main__':
 
 	# flag list
 	parser = argparse.ArgumentParser()
-	parser = argparse.ArgumentParser(description = 'Plotting sampled RMSD distribution')
+	parser = argparse.ArgumentParser(description = 'Plotting sampled volume values distribution')
 	parser.add_argument('--WTFile', help='Sampled volume of WT structure')
 	parser.add_argument('--WTOriFile', help='Original volume of WT structure')	
 	parser.add_argument('--MTFile', help='Sampled volume of MT structure')
