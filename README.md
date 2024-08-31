@@ -48,7 +48,11 @@ Directory 'PlottingScripts' contains the python scripts to generate figures pres
 
 - "PlottingFigure3.py" is used to generate figure 3 of the publication (distance evolution of 2 pre-defined coordinates)
 - "PlottingFigure4_5.py" is used to generate figure 4 and 5 of the publication (Comparison of hydrogen bond networks involving the target amino acid between the wild-type and mutant complexes)
-
+- "PlottingFigure7_8.py" is used to generate figure 7 and 8 of the publication (Two-dimensional clustering landscape of glycan conformations based on angle θ and RMSD)
+- "PlottingFigure9.py" is used to generate figure 9 of the publication (Plotting sampled volume value distribution)
+- "PlottingFigureS3.py" is used to generate supplementary figure 3 of the publication (Correlation between the glycan-HA receptor-binding pocket centre of geometry distance and their Lennard-Jones or electrostatics interaction energy)
+- "PlottingFigureS4.py" is used to generate supplementary figure 4 of the publication (Probability of hydrogen bond formation of an amino acid towards a target amino acid/glycan)
+- "ExtractingHbondPairs.py" is used to generate supplementary table 1 of the publication (Extracting atom pairs that are involved in hydrogen bond formed between two selected amino acids, and the frequency of the hydrogen bond pair out of the total number of hydrogen bonds detected between a given pair of amino acids)
 
 ## 3. Additional information
 
