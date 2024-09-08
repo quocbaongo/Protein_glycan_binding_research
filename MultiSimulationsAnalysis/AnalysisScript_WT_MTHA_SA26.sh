@@ -723,7 +723,7 @@ do
 
 	python3 $WorkDir/DetectingHbondReceptor_Protein/DetectingHydrogenBond.py $WorkDir/ConcatenatedTraj/BoundTrajout.xtc $EMTPR $WorkDir/ConcatenatedTraj/frame0.pdb $i B
 	
-	python3 $WorkDir/DetectingHbondReceptor_Protein/ReadJsonFile.py $WorkDir/DetectingHbondReceptor_Protein/${i}_B/HydrogenBondDetection.json $WorkDir/ConcatenatedTraj/BoundTrajout.xtc $EMTPR $WorkDir/ConcatenatedTraj/frame0.pdb
+	python3 $WorkDir/DetectingHbondReceptor_Protein/ReadJsonFile.py $WorkDir/DetectingHbondReceptor_Protein/${i}_B/HydrogenBondDetection.json $EMTPR $WorkDir/ConcatenatedTraj/frame0.pdb
 	
 	python3 $WorkDir/DetectingHbondReceptor_Protein/DataForPlotting.py $WorkDir/DetectingHbondReceptor_Protein/${i}_B/HydrogenBondPerTimeStep.txt $WorkDir/ConcatenatedTraj/frame0.pdb $EMTPR $i B
 
