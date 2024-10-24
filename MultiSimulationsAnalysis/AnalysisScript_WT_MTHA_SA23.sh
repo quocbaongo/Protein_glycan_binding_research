@@ -241,7 +241,8 @@ cd $WorkDir/DetectingHbondTargetProteinRes_System
 # The output of the python file is a json file named 'HydrogenBondDetection.json'
 # Target residue ID and and chain ID numbering followed the numbering in input molecule's structure in pdb format
 
-echo 'from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import (HydrogenBondAnalysis as HBA)
+echo 'import MDAnalysis
+from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import (HydrogenBondAnalysis as HBA)
 import sys
 import multiprocessing as mp
 from multiprocessing import cpu_count
@@ -496,7 +497,8 @@ cd $WorkDir/DetectingHbondReceptor_Protein
 # The output of the python file is a json file named 'HydrogenBondDetection.json'
 # Target residue ID and and chain ID numbering followed the numbering in input molecule's structure in pdb format
 
-echo 'from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import (HydrogenBondAnalysis as HBA)
+echo 'import MDAnalysis
+from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import (HydrogenBondAnalysis as HBA)
 import sys
 import multiprocessing as mp
 from multiprocessing import cpu_count
