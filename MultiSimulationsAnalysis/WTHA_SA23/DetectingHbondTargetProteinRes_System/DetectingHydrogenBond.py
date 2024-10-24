@@ -1,4 +1,3 @@
-import MDAnalysis
 from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import (HydrogenBondAnalysis as HBA)
 import sys
 import multiprocessing as mp
@@ -23,8 +22,16 @@ def HydrogenBondDetection(Environ,frame_index,ResiID, SEGID):
 	resid_hydrogens_sel = hbonds.guess_hydrogens(f"resid {ResiID} and segid {SEGID}")
 	resid_acceptors_sel = hbonds.guess_acceptors(f"resid {ResiID} and segid {SEGID}")
 
-	hbonds.hydrogens_sel = f"({protein_hydrogens_sel}) or ({resid_hydrogens_sel})"
-	hbonds.acceptors_sel = f"({protein_acceptors_sel}) or ({resid_acceptors_sel})"
+	if resid_hydrogens_sel == "":
+		hbonds.hydrogens_sel = f"{protein_hydrogens_sel}"
+	else:
+		hbonds.hydrogens_sel = f"({protein_hydrogens_sel}) or ({resid_hydrogens_sel})"
+		
+	if resid_acceptors_sel == "":
+		hbonds.acceptors_sel = f"{protein_acceptors_sel}"
+		
+	else:
+		hbonds.acceptors_sel = f"({protein_acceptors_sel}) or ({resid_acceptors_sel})"
 	
 	hbonds.run(start=int(frame_index),stop=(int(frame_index)+1))
 
@@ -72,26 +79,3 @@ if __name__ == "__main__":
 
 	with open(FileName, "w") as outfile:
 		json.dump(DictList.copy(), outfile)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
