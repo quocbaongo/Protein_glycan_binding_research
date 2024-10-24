@@ -1,4 +1,3 @@
-import MDAnalysis
 from MDAnalysis.analysis.hydrogenbonds.hbond_analysis import (HydrogenBondAnalysis as HBA)
 import sys
 import multiprocessing as mp
